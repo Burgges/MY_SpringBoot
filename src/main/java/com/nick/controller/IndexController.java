@@ -1,6 +1,7 @@
 package com.nick.controller;
 
 import com.nick.dto.Producter;
+import com.nick.service.SendEmailService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +25,9 @@ public class IndexController {
     @Autowired
     private Producter producter;
 
+    @Autowired
+    private SendEmailService sendEmailService;
+
     @ApiOperation("获取当前环境")
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(@RequestParam(value = "userName", required = false) String userName) {
@@ -39,6 +43,15 @@ public class IndexController {
         return "消息发送成功";
     }
 
+    @ApiOperation("发送邮件")
+    @RequestMapping(value = "/send-email", method = RequestMethod.POST)
+    public String sendEmail(@RequestParam(value = "sendMail") String sendMail,
+                          @RequestParam(value = "receiverMail") String receiverMail,
+                            @RequestParam(value = "subject") String subject,
+                            @RequestParam(value = "content") String content) {
+        sendEmailService.sentTextMail(sendMail, receiverMail, subject, content);
+        return "已发送邮件";
+    }
 
 
 }
