@@ -1,11 +1,8 @@
 package com.nick.controller;
 
-<<<<<<< HEAD
 import com.nick.dto.Producter;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-=======
->>>>>>> 068cb3f... Spring Boot 定时任务
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,17 +21,12 @@ public class IndexController {
     @Value("${profiles.actives}")
     private String currentProfiles;
 
-<<<<<<< HEAD
     @Autowired
     private Producter producter;
 
     @ApiOperation("获取当前环境")
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(@RequestParam(value = "userName", required = false) String userName) {
-=======
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index() {
->>>>>>> 068cb3f... Spring Boot 定时任务
         return "Hello World! 当前环境是： " + currentProfiles;
     }
 
