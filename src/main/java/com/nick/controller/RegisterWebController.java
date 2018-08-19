@@ -17,12 +17,7 @@ import javax.validation.Valid;
  * Created by Nick on 2018/8/19.
  */
 @Controller
-public class RegisterWebController extends WebMvcConfigurerAdapter {
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/results").setViewName("results");
-    }
+public class RegisterWebController {
 
     @GetMapping("/register-page")
     public String toRegisterPage(RegisterFormDto registerFormDto) {
