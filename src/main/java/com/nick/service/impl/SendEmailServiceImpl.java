@@ -1,6 +1,5 @@
 package com.nick.service.impl;
 
-import com.nick.dto.Producter;
 import com.nick.service.SendEmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SendEmailServiceImpl implements SendEmailService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Producter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SendEmailServiceImpl.class);
 
     @Autowired
     private JavaMailSenderImpl javaMailSender;
