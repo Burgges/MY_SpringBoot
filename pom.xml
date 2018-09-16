@@ -104,6 +104,12 @@
 			<version>2.0.4.RELEASE</version>
 		</dependency>
 
+		<!-- 自定义自动装配包 -->
+		<dependency>
+			<groupId>com.nick</groupId>
+			<artifactId>autoconfig-demo</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

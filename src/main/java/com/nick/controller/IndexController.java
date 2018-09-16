@@ -1,6 +1,7 @@
 package com.nick.controller;
 
 import com.nick.dto.Producter;
+import com.nick.service.HelloService;
 import com.nick.service.SendEmailService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class IndexController {
     @Autowired
     private SendEmailService sendEmailService;
 
+    @Autowired
+    private HelloService helloService;
+
     @ApiOperation("获取当前环境")
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(@RequestParam(value = "userName", required = false) String userName) {
@@ -51,6 +55,12 @@ public class IndexController {
                             @RequestParam(value = "content") String content) {
         sendEmailService.sentTextMail(sendMail, receiverMail, subject, content);
         return "已发送邮件";
+    }
+
+    @ApiOperation("自动配置测试")
+    @RequestMapping(value = "/auto-config", method = RequestMethod.GET)
+    public String autoConfigTest() {
+        return helloService.sayHello();
     }
 
 

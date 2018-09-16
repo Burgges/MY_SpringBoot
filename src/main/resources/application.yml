@@ -27,3 +27,6 @@ profiles:
 mybatis:
     type-aliases-package: com.nick.mapper
     mapper-locations: classpath:mapper/*.xml
+
+hello:
+  msg: Nick
