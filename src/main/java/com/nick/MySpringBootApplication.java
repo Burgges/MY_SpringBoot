@@ -43,12 +43,12 @@ public class MySpringBootApplication extends AsyncConfigurerSupport {
 	/**
 	 * 通过代码配置内置servlet容器
 	 */
-	@Component
+	/*@Component
 	public static class CustomServletContainer implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> {
 		@Override
 		public void customize(ConfigurableServletWebServerFactory configurableServletWebServerFactory) {
 			configurableServletWebServerFactory.setContextPath("/nick"); //相当于yml中的server.context-path: /nick
 			configurableServletWebServerFactory.setPort(8012); //相当于yml中的server.port: 8012
 		}
-	}
+	}*/
 }
