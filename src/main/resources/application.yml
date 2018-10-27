@@ -1,11 +1,11 @@
 server:
   port: 8011
 #配置SSL自定义证书，实现访问https
-  ssl:
-    key-store: classpath:.keystore
-    key-store-password: 123456
-    key-store-type: JKS
-    key-alias: nick.keystore
+#  ssl:
+#    key-store: classpath:.keystore
+#    key-store-password: 123456
+#    key-store-type: JKS
+#    key-alias: nick.keystore
 
 spring:
   profiles:

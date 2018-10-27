@@ -1,0 +1,59 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" content="text/html">
+    <title>SpringBoot集成WebSocket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{../bootstrap/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body onload="disconnect()">
+
+<div >
+    <label>输入：</label>
+    <input type="text" id="name" />
+    <button id="sendName" th:onclick="'sendName();'">发送</button>
+    <p id="response"></p>
+</div>
+
+<script th:src="@{../websocket/stomp.min.js}"></script>
+<script th:src="@{../websocket/sockjs.min.js}"></script>
+<script th:src="@{../common/jquery.js}"></script>
+<script th:inline="javascript">
+
+    var stompClient = null;
+
+    function setConnected(connected) {
+
+    }
+
+    function connect() {
+        var socket = new SockJS('/endpointTopic'); //1
+        stompClient = Stomp.over(socket);//2
+        stompClient.connect({}, function (frame) {
+//            setConnected(true);
+            stompClient.subscribe("/topic/getResponse", function (response) {
+                showResponse(JSON.parse(response.body).respMsg);
+            })
+        })
+
+    }
+
+    function sendName() {
+        connect();
+        var name = $('#name').val();
+        stompClient.send("/topic", {}, JSON.stringify({ 'msg': name }));
+    }
+
+    function disconnect() {
+        if (stompClient != null) {
+            stompClient.disconnect();
+        }
+    }
+
+    function showResponse(message) {
+        alert(message)
+    }
+
+</script>
+
+</body>
+</html>

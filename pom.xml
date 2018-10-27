@@ -129,6 +129,14 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 			<version>2.0.4.RELEASE</version>
 		</dependency>
+
+		<!-- websocket双向通信 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+			<version>2.0.4.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

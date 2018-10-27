@@ -16,22 +16,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class HttpAutoRedirectHttpsConfig {
 
-    @Bean
-    public ServletWebServerFactory servletContainer() {
-        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory(){
-            @Override
-            protected void postProcessContext(Context context) {
-                SecurityConstraint constraint = new SecurityConstraint();
-                constraint.setUserConstraint("CONFIDENTIAL");
-                SecurityCollection collection = new SecurityCollection();
-                collection.addPattern("/*");
-                constraint.addCollection(collection);
-                context.addConstraint(constraint);
-            }
-        };
-        factory.addAdditionalTomcatConnectors(createHttpConnector());
-        return factory;
-    }
+//    @Bean
+//    public ServletWebServerFactory servletContainer() {
+//        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory(){
+//            @Override
+//            protected void postProcessContext(Context context) {
+//                SecurityConstraint constraint = new SecurityConstraint();
+//                constraint.setUserConstraint("CONFIDENTIAL");
+//                SecurityCollection collection = new SecurityCollection();
+//                collection.addPattern("/*");
+//                constraint.addCollection(collection);
+//                context.addConstraint(constraint);
+//            }
+//        };
+//        factory.addAdditionalTomcatConnectors(createHttpConnector());
+//        return factory;
+//    }
 
     /**
      * 创建连接
