@@ -1,15 +1,12 @@
 package com.nick.controller;
 
 import com.nick.dto.RegisterFormDto;
-import com.nick.entity.Person;
+import com.nick.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -35,20 +32,20 @@ public class RegisterWebController {
 
     @GetMapping("/index-page")
     public String toIndexPage(Model model) {
-        Person single = new Person("nick", 24);
+        User user = new User("nick", "M");
 
-        List<Person> people = new ArrayList<>();
-        Person p1 = new Person("andy", 22);
-        Person p2 = new Person("jack", 30);
-        Person p3 = new Person("lucy", 26);
-        Person p4 = new Person("young", 18);
+        List<User> people = new ArrayList<>();
+        User p1 = new User("andy", "W");
+        User p2 = new User("jack", "M");
+        User p3 = new User("lucy", "M");
+        User p4 = new User("young", "W");
 
         people.add(p1);
         people.add(p2);
         people.add(p3);
         people.add(p4);
 
-        model.addAttribute("singlePerson", single);
+        model.addAttribute("singlePerson", user);
         model.addAttribute("people", people);
         return "index";
     }

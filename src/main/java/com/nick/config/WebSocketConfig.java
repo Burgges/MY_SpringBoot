@@ -16,8 +16,8 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
  *
  * Created by Nick.Chen on 2018/10/17 0017.
  */
-@Configuration
-@EnableWebSocketMessageBroker //开启使用STOMP协议来传输基于代理的消息（message broker）
+//@Configuration
+//@EnableWebSocketMessageBroker //开启使用STOMP协议来传输基于代理的消息（message broker）
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     /*@Bean

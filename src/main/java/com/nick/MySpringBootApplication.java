@@ -1,9 +1,11 @@
 package com.nick;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration;
 import org.springframework.boot.autoconfigure.websocket.servlet.TomcatWebSocketServletWebServerCustomizer;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,6 +21,7 @@ import java.util.concurrent.Executor;
 //@EnableScheduling
 @ComponentScan
 @EnableAsync //启用异步
+@MapperScan(basePackages = {"com.nick.mapper"})
 public class MySpringBootApplication extends AsyncConfigurerSupport {
 
 	public static void main(String[] args) {
